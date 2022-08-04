@@ -1,0 +1,31 @@
+{% extends 'entry_parent.html' %}
+{% load bootstrap %}
+{% block title %}
+<title>Login User</title>
+{% endblock %}
+{% block main_content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center" style="margin:3vw">PHOTO</h1>
+            {% include 'msg.html'%}
+            <div class="card p-6 mt-10 mb-10 border-0 text-center">
+                <h3 class="mt-4">Welcome back</h3>
+                <p class="mt-3">Don't miss your next opportunity. Stay updated in world of wallpaper.</p>
+                <form class="form logForm" action="" method="POST">
+                    {% csrf_token %}
+                    {{ form_login | bootstrap_horizontal }}
+                    <button type="submit" class="btn mt-3 mb-3  btn-success " style="padding:10px 15.9vw">Sign In
+                    </button>
+                    <p class="mt-3">New to PHOTO?
+                        <span>
+                            <a class=" {{active_register}}" id="logRegister" href="/register"> Join now</a></span>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'entry_parent.html' %}
+{% load bootstrap %}
+{% load static %}
+{% block title %}
+<title>Upload</title>
+{% endblock%}
+{% block main_content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-7 offset-md-3">
+            <a href="/profile" class="UploadCancel">
+                <button class="btn mx-1 mt-4 ms-5 py-1 btn-danger  ">
+                    Cancel
+                </button>
+            </a>
+            <h1 class="text-center mt-2">UPLOAD</h1>
+            <h4 class="text-center mb-3">Help community by uploading your own wallpapers!</h4>
+            <form class="form UploadWall" action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form_uploads | bootstrap_horizontal}}
+                <div class="text-center UploadButtons">
+                    <button type="submit" class="btn my-3 mx-3 py-3 btn-primary Upload_Btn">Upload</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock main_content%}

@@ -1,0 +1,27 @@
+{% extends 'parent.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block title %}
+<title>Wallpaper</title>
+{% endblock title %}
+{% block main_content %}
+<h1 class="text-center m-5"> WALLPAPERS</h1>
+<div class="container-fluid ">
+    <div class="row justify-content-around">
+        {% for i in wallpaper%}
+        <div class="card col-md-3 p-3 border-0 user_wallpaper">
+            <a href="/"><img src="/{{i.wall_img}}" class="card-img-top" alt="{{i.wallpaper_name}}.jpg"></a>
+            <div class="card-body">
+                <h5 class="card-title text-left">{{i.wallpaper_name}}<span
+                        style="float:right">Nrs {{i.wallpaper_price}}</span></h5>
+                <h7 class="card-text">Genre : {{i.collection.collection_name}}</h7>
+
+                <!--                <a href="/collection/add_to_cart/{{i.id}}" class="btn btn-primary" onclick="return confirm('Are you sure to add this item on cart?')">Add to cart</a>-->
+            </div>
+
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock main_content %}

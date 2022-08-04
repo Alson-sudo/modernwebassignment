@@ -1,0 +1,47 @@
+{% extends 'parent.html' %}
+{% load bootstrap %}
+{% load static %}
+{% block title %}
+<title>Feedback</title>
+{% endblock%}
+
+{% block main_content %}
+
+<div class="container-fluid p-0 mb-5 testgenre ">
+    <img class="bg_img" src="{% static 'img/bg.jpg'%}" alt="...">
+    {% for j in cat %}
+    <img class="genre_img" src="/{{j.collection_img}}">
+    <div class="column">
+        <div class="container offset-3 col-md-1">
+            <div class="text-uppercase genre_title">{{j.collection_name}}
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="genre_desc text-left">
+                {{j.collection_desc}}
+            </div>
+        </div>
+
+    </div>
+{% endfor %}
+</div>
+<div class="container-fluid py-5 my-5 ">
+    <h5 class="px-5 mx-2 text-center text-decoration-underline">POSTS</h5>
+    <div class="row justify-content-around">
+        {% for i in beats %}
+        <div class="card col-md-3 p-3 border-0 user_wallpaper">
+            <a href="{% url 'show_product_beats' %}?product={{i.wallpaper_name}}">
+                <img src="/{{i.wall_img}}" class="card-img-top" alt="{{i.wallpaper_name}}.jpg">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title text-left">{{i.wallpaper_name}}<span
+                        style="float:right">Nrs {{i.wallpaper_price}}</span></h5>
+                <h7 class="card-text">Genre : {{i.collection.collection_name}}</h7>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock main_content %}

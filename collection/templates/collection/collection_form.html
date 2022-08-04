@@ -1,0 +1,35 @@
+{% extends 'admin_parent.html' %}
+{% load bootstrap %}
+{% block title %}
+<title>COLLECTION</title>
+{% endblock %}
+{% block main_content %}
+
+<div class="container text-center">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="mt-5 py-4">Add Collection</h1>
+            {% include 'msg.html'%}
+            <div class="card border-0">
+                <form class="form collect_add" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form_collection | bootstrap_horizontal }}
+                    <button type="submit" class="btn mt-3 mb-3  btn-success " style="padding:10px 15.9vw">Submit
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = "Enter Collection Name"
+    form_fields[2].placeholder = "Enter Description"
+    for(field in form_fields){
+    form_fields[field].className += ' my-2 '
+    }
+
+
+</script>
+{% endblock %}

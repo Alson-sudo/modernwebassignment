@@ -1,0 +1,85 @@
+{% extends 'parent.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block title %}
+<title>PRODUCT</title>
+{% endblock title%}
+{% block main_content %}
+<h1 class="text-center mt-5 mb-4">ABOUT PRODUCT</h1>
+<div class="container-fluid">
+    <div class="card mb-3 p-5 border-0">
+      {% for i in beats %}
+        <div class="row g-0">
+            <div class="col-md-4 ms-4">
+                <img src="/{{i.wall_img}}"
+                     style=" width:20vw; height:20vw; object-fit:cover;  ">
+            </div>
+            <div class="col-md-7 m-0 pt-3">
+                <div class="card-body">
+                    <h3 class="card-title">{{i.wallpaper_name}}</h3>
+                    <p> Genre: {{i.collection.collection_name}}</p>
+                    <p > Price: {{i.wallpaper_price}}</p>
+                    <a href="/collection/add_to_cart/{{i.id}}">
+                        <button type="button" class="btn btn-danger px-5">ADD TO CART</button>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+
+</div>
+
+<!--<div class="container-fluid mb-3 ">-->
+<!--    <h3 class="px-3 mb-3">Related content:</h3>-->
+<!--    <div class="row justify-content-center">-->
+<!--        <div class="card mb-3 col-md-4 more_product border-0" style="max-width: 540px;">-->
+<!--            <div class="row g-0">-->
+<!--                <div class="col-md-4 p-2">-->
+<!--                    <img src="{% static 'img/sunset.jpg' %}" class="img-fluid rounded-start" alt="...">-->
+<!--                </div>-->
+<!--                <div class="col-md-8">-->
+<!--                    <div class="card-body">-->
+<!--                        <h5 class="card-title">Picture Name</h5>-->
+<!--                        <p class="card-text">Artist Name</p>-->
+<!--                        <button class="btn btn-primary"><small class="text-white">See More</small></button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--       <div class="card mb-3 col-md-4 more_product border-0" style="max-width: 540px;">-->
+<!--            <div class="row g-0">-->
+<!--                <div class="col-md-4 p-2">-->
+<!--                    <img src="{% static 'img/sunset.jpg' %}" class="img-fluid rounded-start" alt="...">-->
+<!--                </div>-->
+<!--                <div class="col-md-8">-->
+<!--                    <div class="card-body">-->
+<!--                        <h5 class="card-title">Picture Name</h5>-->
+<!--                        <p class="card-text">Artist Name</p>-->
+<!--                        <button class="btn btn-primary"><small class="text-white">See More</small></button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="card mb-3 col-md-4 more_product border-0" style="max-width: 540px;">-->
+<!--            <div class="row g-0">-->
+<!--                <div class="col-md-4 p-2">-->
+<!--                    <img src="{% static 'img/sunset.jpg' %}" class="img-fluid rounded-start" alt="...">-->
+<!--                </div>-->
+<!--                <div class="col-md-8">-->
+<!--                    <div class="card-body">-->
+<!--                        <h5 class="card-title">Picture Name</h5>-->
+<!--                        <p class="card-text">Artist Name</p>-->
+<!--                        <button class="btn btn-primary"><small class="text-white">See More</small></button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+<!--    </div>-->
+<!--</div>-->
+
+{% endblock main_content %}

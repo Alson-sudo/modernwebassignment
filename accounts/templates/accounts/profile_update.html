@@ -1,0 +1,31 @@
+{% extends 'entry_parent.html' %}
+{% load bootstrap %}
+{% load static %}
+{% block title %}
+<title>Profile</title>
+{% endblock%}
+{% block main_content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-7 offset-md-3">
+
+            <h1 class="text-center mt-3">UPDATE PROFILE</h1>
+            <h4 class="text-center mb-4">Make changes to update your profile</h4>
+            <form class="form ProfileUpdate" action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | bootstrap_horizontal}}
+                <div class="text-center">
+                    <button type="submit" class="btn my-3 mx-3 py-3 btn-primary">Update
+                    </button>
+                    <span>
+                            <a href="/profile text-center"><button class="btn my-3 mx-3 py-3 btn-danger ">Cancel
+                            </button>
+                        </a>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

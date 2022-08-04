@@ -1,0 +1,43 @@
+{% extends 'entry_parent.html' %}
+{% block title %}
+<title>MyOrders</title>
+{% endblock title %}
+{% block main_content %}
+
+<div class="container-fluid" style="min-height:300px;">
+    <div class="row">
+        <div class="col mt-4 mb-4" >
+            <h1 class="text-center text-uppercase m-4 font-weight-bold">
+                My Order History
+            </h1>
+            {% include 'msg.html' %}
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Item Price</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody class="align-items-center">
+                        {% for item in items %}
+                        <tr>
+                            <td>{{item.wallpaper.wallpaper_name}}</td>
+                            <td>{{item.wallpaper.wallpaper_price}}</td>
+                            <td>{{item.status}}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock main_content %}

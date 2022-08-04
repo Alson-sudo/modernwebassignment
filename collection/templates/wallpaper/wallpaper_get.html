@@ -1,0 +1,40 @@
+{% extends 'admin_parent.html' %}
+{% block title %}
+<title>Wallpaper</title>
+{% endblock%}
+{% block main_content %}
+<div class="container text-center">
+     <div class="row">
+          <div class="col-md-12 ">
+              <h1 class="text-center mt-5 py-5">All Wallpaper</h1>
+              {% include 'msg.html' %}
+               <a class="btn btn-success mb-5" href="/collection/wallpaper_form">+ Add New Wallpaper</a>
+              <div class="card py-2 px-2">
+
+                  <table class="table-striped wallpaper_table">
+                      <tr>
+                          <th>Wallpaper Name</th>
+                          <th>Price</th>
+                          <th>Category</th>
+                          <th>Image</th>
+                          <th>Date</th>
+                          <th>Actions</th>
+                      </tr>
+                      {% for i in wallpaper_key %}
+                      <tr>
+                          <td> {{ i.wallpaper_name }}</td>
+                          <td> {{ i.wallpaper_price }}</td>
+                           <td> {{ i.collection.collection_name }}</td>
+                          <td><img src="/{{i.wall_img}}" width="200"> </td>
+                          <td> {{ i.created_date }}</td>
+                          <td><a class="btn btn-warning" href="/collection/wallpaper_update/{{i.id}}">Edit</a> &nbsp;
+                              <a class="btn btn-danger" href="/collection/wallpaper_delete/{{i.id }}" onclick="return confirm('Terminate','Delete this Collection?')">Delete</a></td>
+                      </tr>
+                      {% endfor %}
+                  </table>
+
+              </div>
+          </div>
+     </div>
+</div>
+{% endblock %}

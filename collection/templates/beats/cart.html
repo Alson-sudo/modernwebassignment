@@ -1,0 +1,47 @@
+{% extends 'entry_parent.html' %}
+{% load bootstrap %}
+{% load static %}
+{% block title %}
+<title>Profile</title>
+{% endblock%}
+{% block main_content %}
+<h1 class="m-5 text-center">Add to cart</h1>
+<table class="table table-hover cartwheel">
+    <thead>
+    <th></th>
+    <th>Name</th>
+    <th>Genre</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
+    </thead>
+    {% for i in items %}
+    <tr style="padding:0px">
+        <td width="30%"><img src="/{{i.wallpaper.wall_img}}" width="90%" height="200px" style="object-fit:cover"></td>
+        <td width="25%">{{i.wallpaper.wallpaper_name}} <br>{{i.user}}</td>
+        <td width="15%"> {{i.collection.collection_name}}</td>
+        <td width="20%"> {{i.wallpaper.wallpaper_price}}</td>
+        <td>
+            <div class="text-center mt-4 mb-4">
+                <a href="/collection/my_order/{{i.wallpaper.id}}/{{i.id}}">
+                    <button class="btn btn-danger" style="padding:10px 9vw; border-radius:50px">Order Now</button>
+                </a>
+            </div>
+        </td>
+        <td width="10%">
+            <a href="/collection/remove_cart_item/{{i.id}}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x"
+                 viewBox="0 0 16 16">
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+            </a>
+
+        </td>
+    </tr>
+    {% endfor %}
+    <tfoot>
+    </tfoot>
+</table>
+
+
+{% endblock %}

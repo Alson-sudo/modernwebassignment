@@ -1,0 +1,61 @@
+{% extends 'parent.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block title %}
+<title>Wallpaper</title>
+{% endblock title %}
+{% block main_content %}
+<h1 class="text-center mt-5"> WALLPAPERS</h1>
+<div class="card card-body border-0">
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-up"
+             viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                  d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+        </svg>
+    </button>
+    <form class="form homeSearch" method="get">
+        <div class="row m-0 ">
+            <div class="offset-3 col-5">
+                {{wallpaper_filter.form | bootstrap_horizontal}}
+            </div>
+            <div class="col-1 py-2">
+                <button type="submit" class="btn btn-light">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                         class="bi bi-search"
+                         viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </form>
+
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-around">
+        {% for i in wallpaper%}
+        <div class="card col-md-3 p-3 border-0 user_wallpaper">
+            <a href="{% url 'show_product_beats' %}?product={{i.wallpaper_name}}">
+                <img src="/{{i.wall_img}}" class="card-img-top" alt="{{i.wallpaper_name}}.jpg"></a>
+            <div class="card-body">
+                <h5 class="card-title text-left">{{i.wallpaper_name}}<span
+                        style="float:right">Nrs {{i.wallpaper_price}}</span></h5>
+                <h7 class="card-text">Genre : {{i.collection.collection_name}}</h7>
+            </div>
+
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[0].placeholder = "Search for wallpaper..."
+    for(field in form_fields){
+    form_fields[field].className += ' my-2 '
+    }
+
+</script>
+
+{% endblock main_content %}

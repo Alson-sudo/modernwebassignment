@@ -1,0 +1,15 @@
+table.collection_table tr th,table.collection_table tr td,
+table.wallpaper_table tr th,table.wallpaper_table tr td{
+padding-bottom: 2vw;
+}
+
+.wall_update div,.wall_add div,
+.collect_update div,.collect_add div{
+width:92%;
+margin:1.5vw;
+
+}
+.wall_update label,.wall_add label,
+.collect_update label,.collect_add label{
+width:100%;
+}

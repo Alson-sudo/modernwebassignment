@@ -1,0 +1,148 @@
+/*========================= LOGIN and REGISTER============================== */
+span.help-block{
+    color:red;
+}
+p.help-block{
+display:none;
+}
+
+
+ .logForm div, .regForm div {
+width:92%;
+margin:0 1.5vw 0 1.5vw;
+}
+.logForm label, .regForm label{
+display: none
+}
+#forgot, #logRegister{
+text-decoration: none;
+
+}
+
+#forgot{
+color:red;
+
+}
+ul{
+display:none;
+}
+
+/*========================= UPDATE PROFILE ============================== */
+.ProfileUpdate div{
+width:90%;
+margin:1vw 1.5vw 1vw 1.5vw;
+}
+
+.ProfileUpdate label{
+margin:0.5vw 0 0 2vw;
+width:auto;
+}
+
+.ProfileUpdate input, .ProfileUpdate textarea{
+width:95%;
+margin: .5vw 0 .5vw ;
+border: 0px 0px 2px;
+outline:none;
+border: none;
+border-bottom: 1px solid black;
+border-left: 1px solid black;
+
+}
+.ProfileUpdate textarea{
+width:95%;
+height:5vw;
+}
+.ProfileUpdate button{
+border-radius:50px;
+width:30%;
+
+}
+
+/*========================= UPLOAD ============================== */
+.UploadWall div{
+width:90%;
+margin:1vw 1.5vw 1vw 1.5vw;
+}
+
+.UploadWall label{
+margin:0.5vw 0 0 2vw;
+width:auto;
+}
+
+.UploadWall input{
+width:95%;
+margin: .5vw 0 .5vw ;
+border: 0px 0px 2px;
+outline:none;
+border: none;
+border-bottom: 1px solid black;
+border-left: 1px solid black;
+
+}
+
+div.UploadButtons button{
+border-radius:50px;
+width:30%;
+
+}
+
+a.UploadCancel button{
+width:10%;
+border-radius:50px;
+}
+
+/*========================= CART ============================== */
+table.cartwheel tr th,table.cartwheel tr td{
+padding:2vw;
+}
+
+.cartwheel svg:hover{
+cursor:pointer;
+color: #900D09;
+}
+
+
+
+/*========================= NAVBAR============================== */
+
+ul.homecoming li{
+padding: 3px;
+}
+ul.homecoming li a{
+margin-right: 15px;
+font-size:20px;
+}
+
+
+ul.homecoming li:hover a{
+    font-size:20px;
+	margin-top:-5px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+	cursor:pointer;
+	color: dark;
+
+}
+
+ul.logs li svg{
+    margin-right: 15px;
+	font-size:0.73em;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+	   color: white;
+}
+
+/*=================== PASSWORD ===================*/
+
+ .ChangePass div{
+width:92%;
+margin:0 1.5vw 0 1.5vw;
+}
+
+.ChangePass label{
+display: none
+}
+
+

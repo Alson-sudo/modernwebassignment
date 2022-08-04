@@ -1,0 +1,45 @@
+{% extends 'parent.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block title %}
+<title>Artists</title>
+{% endblock title %}
+{% block main_content %}
+<h1 class="text-center m-5">Artists Dashboard</h1>
+<div class="container-fluid text-center">
+    <div class="card card-body border-0">
+        <form class="form homeSearch" method="get">
+            <div class="row m-0 ">
+                <div class="offset-3 col-5">
+                    {{artists_filter.form | bootstrap_horizontal}}
+                </div>
+                <div class="col-1 py-0">
+                    <button type="submit" class="btn btn-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                             class="bi bi-search"
+                             viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row ">
+        {% for i in artists%}
+        <div class="card col-md-3 p-3 border-0 ">
+            <div class="card border-0">
+                <div class="card user_collection" style="border:none">
+                    <a href="{% url 'show_profile_artists' %}?artists={{i.username}}"><img src="/{{i.profiles.profile_pic}}" class="card-img-top" ></a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.username}}</h5>
+<!--                        <p class="card-text text-truncate">{{i.collection_desc}}</p>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock main_content %}

@@ -1,0 +1,64 @@
+{% extends 'parent.html' %}
+{% load bootstrap %}
+{% load static %}
+{% block title %}
+<title>Profile</title>
+{% endblock%}
+{% block main_content %}
+<h1 class="text-center mt-4">PROFILE</h1>
+<div class="container-fluid">
+    <div class="card mb-3 p-5 border-0">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="/{{request.user.profiles.profile_pic}}"
+                     style="  border-radius:50%; width:20vw; height:20vw; object-fit:cover;  ">
+            </div>
+            <div class="col-md-8 m-0 pt-3">
+                <div class="card-body">
+                    <h3 class="card-title">{{request.user.profiles.user}}
+                        <span>
+                        <svg style="color:#199de5" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                             fill="currentColor"
+                             class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                        <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+                    </svg>
+                    </span>
+                    </h3>
+                    <p>{{request.user.profiles.fullname}}</p>
+                    <p class="card-text">{{request.user.profiles.description}}</p>
+                    <a href="profile_update">
+                        <button type="button" class="btn btn-outline-warning px-5">Edit</button>
+                    </a>
+                    <a href="collection/upload">
+                        <button type="button" class="btn btn-outline-primary px-5">Upload</button>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="container-fluid mb-3 ">
+    <h5 class="px-5 mx-2 text-center text-decoration-underline">POSTS</h5>
+    <div class="row justify-content-around">
+        {% for j in posts%}
+        <div class="card col-md-3 p-3 border-0 user_wallpaper">
+            <div class="upload-wrap">
+                <a href="/delete_music/{{j.id}}"><span class="upload-delete">&times;</span></a>
+                <a href="{% url 'show_product_beats' %}?product={{j.wallpaper_name}}">
+                    <img src="/{{j.wall_img}}" class="card-img-top" alt="{{i.wallpaper_name}}.jpg">
+                </a>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title text-left">{{j.wallpaper_name}}<span
+                        style="float:right">Nrs {{j.wallpaper_price}}</span></h5>
+                <h7 class="card-text">Genre : {{j.collection.collection_name}}</h7>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

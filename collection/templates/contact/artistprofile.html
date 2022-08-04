@@ -1,0 +1,27 @@
+{% extends 'parent.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block title %}
+<title>Artist Profile</title>
+{% endblock title %}
+{% block main_content %}
+<h1 class="text-center mt-5 mb-4">ARTIST PROFILE</h1>
+<div class="container-fluid text-center">
+    <div class="card mb-3 p-5 border-0 text-center">
+        <div class="text-center">
+            <img src="/{{request.user.profiles.profile_pic}}"
+                 style="  border-radius:none; width:20vw; height:20vw; object-fit:cover; text-align:right  ">
+        </div>
+        <div class="text-center m-0 pt-3">
+            <div class="card-body">
+                <h3 class="card-title">{{request.user.profiles.user}}
+                </h3>
+                <p>{{request.user.profiles.fullname}}</p>
+                <p class="card-text">{{request.user.profiles.description}}</p>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+{% endblock main_content %}5

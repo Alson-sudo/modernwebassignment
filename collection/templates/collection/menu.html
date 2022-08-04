@@ -1,0 +1,37 @@
+{% extends 'parent.html' %}
+{% load static %}
+{% block title %}
+<title>Menu</title>
+{% endblock title %}
+{% block main_content %}
+<h1> Collection with wallpaper</h1>
+<div class="container">
+    <div class="row justify-content-around">
+        {% for i in collection%}
+        <h1>{{i.collection_name}}</h1>
+        {% for j in i.wallpaper_set.all %}
+        <div class="menu-items d-flex justify-content-between">
+            <div class="wallpaper_name">
+            {{j.wallpaper_name}}
+            </div>
+            <div class="wallpaper_price">
+            Nrs. {{j.wallpaper_price}}
+            </div>
+            <div class="wallpaper_img">
+                <img src="/{{i.collection_img}}" width='200'>
+            </div>
+        </div>
+        {% endfor %}
+<!--        <div class="card col-md-3 m-3">-->
+<!--            <div class="card-body">-->
+<!--                <h5 class="card-title">{{i.collection_name}}</h5>-->
+<!--                <p class="card-text"> {{i.collection_desc}}</p>-->
+<!--                <a href="#" class="btn btn-primary">View More</a>-->
+<!--            </div>-->
+
+<!--        </div>-->
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock main_content %}

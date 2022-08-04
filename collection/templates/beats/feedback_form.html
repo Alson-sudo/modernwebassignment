@@ -1,0 +1,145 @@
+{% extends 'parent.html' %}
+{% load bootstrap %}
+{% load static %}
+{% block title %}
+<title>Feedback</title>
+{% endblock %}
+{% block main_content %}
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-up"
+         viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+              d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+    </svg>
+</button>
+<div class="container-fluid p-0 about_container ">
+    <img class="about_img" src="{% static 'img/wolf.jpg'%}" alt="...">
+    <div class="about_title">ABOUT US</div>
+</div>
+<div class="container mt-4 p-0">
+    <h3 class="text-center mt-5 text-uppercase">photo</h3>
+    <h6 class="text-center text-uppercase">its all about stock images</h6>
+    <div class=" row mb-4 p-0">
+        <div class="card col-md-5 offset-md-1 pt-5 border-0 about_left ">
+            <p>
+                Stock images are photos that are already captured, edited, and available for use. There are two types of
+                stock images: photos that require you to pay a licensing fee and images that are free to use (aka.
+                royalty free images).<br>
+
+                The majority of images which you can source from stock image websites are royalty free, which means that
+                you can use them anywhere without having to credit anybody. When you use stock images, you can also edit
+                them to your liking and even distribute them in marketing campaigns — they’re perfect for ecommerce
+                entrepreneurs.<br>
+                When you’re searching for stock images, you’ll need to choose between two different options; free stock
+                image websites and premium stock image websites. Both premium and free stock image websites have
+                advantages and disadvantages which you’ll need to take into consideration when you’re sourcing images
+                for your business.
+
+                We’ve highlighted the key points to consider when you’re choosing which option is the best fit for your
+                brand.
+            </p>
+        </div>
+        <div class=" card col-md-5 pt-5 border-0 about_right">
+            <p>
+                Stock photography is the supply of photographs which are often licensed for specific uses.[1] The stock
+                photo industry, which began to gain hold in the 1920s,[1] has established models including traditional
+                macrostock photography,[2] midstock photography,[3] and microstock photography.[4] Conventional stock
+                agencies charge from several hundred to several thousand United States dollars per image, while
+                microstock photography may sell for around USD 25 cents.[4] Professional stock photographers
+                traditionally place their images with one or more stock agencies on a contractual basis,[1] while stock
+                agencies may accept the high-quality photos of amateur photographers through online submission.[5]
+                <br>
+                Themes for stock photos are diverse, although Megan Garber of The Atlantic wrote in 2012 that "one of
+                the more wacky/wondrous elements of stock photos is the manner in which, as a genre, they've developed a
+                unifying editorial sensibility. To see a stock image is... to know you're seeing a stock image.
+            </p>
+        </div>
+    </div>
+    <div class="text-center m-5">
+        <a href="/">
+            <button class="btn btn-outline-dark" style="font-size:1.5vw; padding:1vw 5vw; border-radius:50px;">Discover
+                More
+            </button>
+        </a>
+    </div>
+
+
+</div>
+<div class="container mt-4 p-0">
+    <div class="row p-0 mb-5">
+        <div class="col-md-5 offset-md-1 pt-5 border-0">
+            <h1 style="font-weight:600">Contact Us</h1>
+            <p class="mt-4">Sample text. Click to select the text box.
+                Click again or double click to start editing the text.</p>
+            <form class="form ContactForm" action="" method="POST">
+                <p class="mb-0">Username</p>
+                <input type="text" value="{{request.user.username}}" placeholder="Enter your username" required>
+                {% csrf_token %}
+                {{ form_feedback | bootstrap_horizontal }}
+                <button type="submit" class="btn btn-dark">Submit</button>
+            </form>
+        </div>
+        <ul class="col-md-5 p-5  mt-4 border-0 bg-dark ">
+            <ul class="list-unstyled text-center text-white contact_info ">
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                         class="bi bi-phone"
+                         viewBox="0 0 16 16">
+                        <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/>
+                        <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                    </svg>
+                    <p class="mt-2">+026-2343-2615</p>
+                </li>
+                <li class="mt-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                         class="bi bi-building" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                              d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694 1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/>
+                        <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/>
+                    </svg>
+                    <p class="mb-0 mt-2">Melbourne St</p>
+                    <span>South Brisbane QLD 4101, Australia</span>
+
+                </li>
+                <li class="mt-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                         class="bi bi-envelope" viewBox="0 0 16 16">
+                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+                    </svg>
+                    <p class="mt-2" c>photo@shoot.com</p>
+                </li>
+
+            </ul>
+
+    </div>
+</div>
+<div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14159.258623820042!2d153.016698!3d-27.475029!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b915a0835840a2f%3A0xdd5e3f5c208dc0e1!2sMelbourne%20St%2C%20South%20Brisbane%20QLD%204101%2C%20Australia!5e0!3m2!1sen!2sin!4v1624878388396!5m2!1sen!2sin"
+            width="100%" height="300px" style="border:3px;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+
+</div>
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = "Enter your Message"
+    for(field in form_fields){
+    form_fields[field].className += ' my-2 '
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+{% endblock %}

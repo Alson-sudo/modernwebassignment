@@ -1,0 +1,42 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/admins/dashboard">PHOTO</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link {{active_collection}}" aria-current="page" href="/collection/collection_get">Collection</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{active_wallpaper}}" href="/collection/wallpaper_get">Wallpaper</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/collection/show_feedback">Feedback</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{activate_users}}" href="/admins/users">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{activate_admins}}" href="/admins/admins">Admins</a>
+                </li>
+
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link {{active_login}}" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{active_register}}" href="/register">Register</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
